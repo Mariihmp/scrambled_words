@@ -2,135 +2,95 @@ package com.example.scrambledgame
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
-import android.widget.GridLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class LevelsActivity : AppCompatActivity() {
+
+    private lateinit var levels: List<Level>
+    private var unlockedLevels = 1 // Start with level 1 unlocked
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
-        val level1Button = findViewById<Button>(R.id.card1)
-        val level2Button = findViewById<Button>(R.id.card2)
-        val level3Button = findViewById<Button>(R.id.card3)
 
-        // Handle level 1 button click
-        level1Button.setOnClickListener {
-            // Navigate to GameActivity for level 1
-            val intent = Intent(this, GameActivity::class.java)
-            intent.putExtra("LEVEL_NUMBER", 1)
-            startActivity(intent)
+        // Load levels from JSON
+        levels = loadLevelsFromJson()
+
+        if (levels.isEmpty()) {
+            Toast.makeText(this, "Error loading levels", Toast.LENGTH_SHORT).show()
+            return
         }
 
-        // Handle level 2 button click
-        level2Button.setOnClickListener {
-            // Navigate to GameActivity for level 2
-            val intent = Intent(this, GameActivity::class.java)
-            intent.putExtra("LEVEL_NUMBER", 2)
-            startActivity(intent)
-        }
+        // Update unlocked levels based on game progress
+        updateUnlockedLevels()
 
-        // Handle level 3 button click
-        level3Button.setOnClickListener {
-            // Check if level 3 is unlocked
-            if (isLevelUnlocked(3)) {
-                // Navigate to GameActivity for level 3
-                val intent = Intent(this, GameActivity::class.java)
-                intent.putExtra("LEVEL_NUMBER", 3)
-                startActivity(intent)
+        // Set up click listeners for level buttons
+        for (level in 1..levels.size) {
+            val cardId = resources.getIdentifier("card$level", "id", packageName)
+            val card = findViewById<Button>(cardId)
+
+            if (card == null) {
+                Log.e("LevelsActivity", "Card $level not found in layout")
+                Toast.makeText(this, "Card $level not found in layout", Toast.LENGTH_SHORT).show()
+                continue
+            }
+
+            // Set button color and click listener
+            if (level <= unlockedLevels) {
+                card.setBackgroundColor(getColor(R.color.unlocked_level_color)) // Unlocked color
+                card.setOnClickListener {
+                    startGameActivity(level)
+                }
             } else {
-                // Display message if level 3 is locked
-                Toast.makeText(this, "Level 3 is locked! Complete previous levels to unlock.", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        // Get reference to the GridLayout where levels will be displayed
-        val gridLayout = findViewById<GridLayout>(R.id.gridLayout)
-
-        // Define total levels (9 levels in this case)
-        val totalLevels = 9
-
-        // Define how many levels are unlocked (e.g., 3 levels unlocked initially)
-        val unlockedLevels = 3
-
-        // Loop through each level and add dynamic icons and buttons based on the unlocked status
-        for (level in 1..totalLevels) {
-            // Create a layout for each button and its icon
-            val levelLayout = LinearLayout(this).apply {
-                orientation = LinearLayout.VERTICAL
-                layoutParams = GridLayout.LayoutParams().apply {
-                    rowSpec = GridLayout.spec((level - 1) / 3) // Calculate row position
-                    columnSpec = GridLayout.spec((level - 1) % 3) // Calculate column position
-                    marginStart = 8
-                    marginEnd = 8
-                    topMargin = 8
-                    bottomMargin = 8
-                }
-                gravity = android.view.Gravity.CENTER
-            }
-
-            // Create the Button for each level
-            val button = Button(this).apply {
-                text = "Card $level"
-                textSize = 16f
-                setPadding(8, 8, 8, 8)
-                isEnabled = level <= unlockedLevels // Enable button only for unlocked levels
-            }
-
-            // Create the icon for each level
-            val icon = ImageView(this).apply {
-                layoutParams = LinearLayout.LayoutParams(24, 24).apply {
-                    marginEnd = 8
-                    bottomMargin = 8
-                }
-
-                // Set the icon based on the level's unlocked status
-                if (level <= unlockedLevels) {
-                    // No icon for unlocked levels
-                } else {
-                    setImageResource(R.drawable.ic_level_locked) // Display locked icon for locked levels
-                }
-            }
-
-            // Add the Button and Icon to the layout container
-            levelLayout.addView(button)
-            levelLayout.addView(icon)
-
-            // Add the layout (containing both the button and icon) to the GridLayout
-            gridLayout.addView(levelLayout)
-
-            // Button click listener for each level button
-            button.setOnClickListener {
-                if (level == 1 || level == 2 || isLevelUnlocked(level)) {
-                    // Navigate to GameActivity with the selected level
-                    val intent = Intent(this@LevelsActivity, GameActivity::class.java)
-                    intent.putExtra("LEVEL_NUMBER", level)
-                    startActivity(intent)
-                } else {
-                    // Show message if the level is locked
+                card.setBackgroundColor(getColor(R.color.dark_purple)) // Locked color
+                card.setOnClickListener {
                     Toast.makeText(this, "Level $level is locked! Complete previous levels to unlock.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
-    // Function to check if a level is unlocked (based on shared preferences)
-    private fun isLevelUnlocked(level: Int): Boolean {
-        val sharedPreferences = getSharedPreferences("GameProgress", MODE_PRIVATE)
-        return sharedPreferences.getBoolean("LEVEL_$level", false)
+    private fun updateUnlockedLevels() {
+        // Example logic: Unlock levels based on game progress
+        // For now, unlock levels 1 and 2 by default
+        unlockedLevels = 2
+
+        // Add more logic here to dynamically update `unlockedLevels` based on game progress
     }
 
-    // Function to unlock a level (call this function when the player completes a level)
-    private fun unlockLevel(level: Int) {
-        val sharedPreferences = getSharedPreferences("GameProgress", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("LEVEL_$level", true)
-        editor.apply()
+    private fun startGameActivity(level: Int) {
+        try {
+            val levelData = levels[level - 1]
+            val intent = Intent(this, GameActivity::class.java).apply {
+                putExtra("LEVEL", Gson().toJson(levelData))
+            }
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error loading level $level", Toast.LENGTH_SHORT).show()
+            e.printStackTrace()
+        }
     }
 
+    private fun loadLevelsFromJson(): List<Level> {
+        return try {
+            val inputStream = resources.openRawResource(R.raw.levels)
+            val json = inputStream.bufferedReader().use { it.readText() }
+            val levelType = object : TypeToken<List<Level>>() {}.type
+            Gson().fromJson(json, levelType)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emptyList()
+        }
     }
 
+    data class Level(
+        val level: Int,
+        val word: String,
+        val scrambled_word: List<Char>
+    )
+}

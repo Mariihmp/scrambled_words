@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/very_light_purple"
     tools:context=".MainActivity">
 
-    <!-- Title TextView -->
+    <!-- Title Text -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/yay_holiday"
         android:gravity="center"
         android:text="Select Level"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:textColor="@color/dark_purple"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- GridLayout for Cards -->
+    <!-- GridLayout for Buttons -->
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
@@ -28,120 +29,120 @@
         android:columnCount="3"
         android:rowCount="3"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/titleText">
 
-        <!-- Card 1 -->
+        <!-- Buttons 1 to 9 -->
         <Button
             android:id="@+id/card1"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 1"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            android:text="1"
+            android:radius="3dp"
+            app:cornerRadius="10dp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
 
-        <!-- Card 2 -->
         <Button
             android:id="@+id/card2"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 2"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            android:radius="8dp"
+            app:cornerRadius="10dp"
 
-        <!-- Card 3 -->
+            android:text="2"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card3"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 3"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 4 -->
+            android:text="3"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card4"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 4"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 5 -->
+            android:text="4"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card5"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 5"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 6 -->
+            android:text="5"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card6"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 6"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 7 -->
+            android:text="6"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card7"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 7"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 8 -->
+            android:text="7"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card8"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 8"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
 
-        <!-- Card 9 -->
+            android:text="8"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/card9"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@color/cardview_light_background"
-            android:text="Card 9"
-            android:textColor="#FFFFFF"
             android:layout_margin="10dp"
-            android:drawableRight="@drawable/ic_level_locked"
-            android:gravity="center|end|bottom"/>
+            app:cornerRadius="10dp"
+
+            android:text="9"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textSize="18sp" />
 
     </GridLayout>
 

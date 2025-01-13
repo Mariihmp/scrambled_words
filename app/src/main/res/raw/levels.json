@@ -1,0 +1,47 @@
+[
+  {
+    "level": 1,
+    "word": "book",
+    "scrambled_word": ["o", "b", "k", "o"]
+  },
+  {
+    "level": 2,
+    "word": "game",
+    "scrambled_word": ["g", "a", "m", "e"]
+  },
+  {
+    "level": 3,
+    "word": "play",
+    "scrambled_word": ["l", "y", "a", "p"]
+  },
+  {
+    "level": 4,
+    "word": "code",
+    "scrambled_word": ["e", "d", "o", "c"]
+  },
+  {
+    "level": 5,
+    "word": "java",
+    "scrambled_word": ["a", "v", "j", "a"]
+  },
+  {
+    "level": 6,
+    "word": "quiz",
+    "scrambled_word": ["z", "i", "u", "q"]
+  },
+  {
+    "level": 7,
+    "word": "task",
+    "scrambled_word": ["k", "s", "a", "t"]
+  },
+  {
+    "level": 8,
+    "word": "hero",
+    "scrambled_word": ["o", "e", "h", "r"]
+  },
+  {
+    "level": 9,
+    "word": "goal",
+    "scrambled_word": ["o", "l", "a", "g"]
+  }
+]

@@ -34,10 +34,13 @@ android {
         jvmTarget = "1.8"
     }
 }
+
 dependencies {
     implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.recyclerview)
-//    implementation(libs.androidx.cardview)
+    // implementation(libs.androidx.recyclerview)
+    // implementation(libs.androidx.cardview)
+
+    implementation(libs.gson)
 
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
