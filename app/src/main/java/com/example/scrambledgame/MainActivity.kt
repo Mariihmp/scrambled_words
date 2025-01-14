@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+
         val splashText: TextView = findViewById(R.id.idTVText)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.side_slide)
         splashText.startAnimation(slideAnimation)

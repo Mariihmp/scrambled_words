@@ -1,47 +1,102 @@
 [
   {
     "level": 1,
-    "word": "book",
-    "scrambled_word": ["o", "b", "k", "o"]
+    "word": "puzzle",
+    "scrambled_word": ["z", "u", "p", "l", "e", "z"]
   },
   {
     "level": 2,
-    "word": "game",
-    "scrambled_word": ["g", "a", "m", "e"]
+    "word": "guitar",
+    "scrambled_word": ["t", "a", "r", "g", "u", "i"]
   },
   {
     "level": 3,
-    "word": "play",
-    "scrambled_word": ["l", "y", "a", "p"]
+    "word": "basket",
+    "scrambled_word": ["s", "k", "a", "b", "e", "t"]
   },
   {
     "level": 4,
-    "word": "code",
-    "scrambled_word": ["e", "d", "o", "c"]
+    "word": "jungle",
+    "scrambled_word": ["g", "u", "n", "j", "e", "l"]
   },
   {
     "level": 5,
-    "word": "java",
-    "scrambled_word": ["a", "v", "j", "a"]
+    "word": "camera",
+    "scrambled_word": ["m", "a", "c", "e", "r", "a"]
   },
   {
     "level": 6,
-    "word": "quiz",
-    "scrambled_word": ["z", "i", "u", "q"]
+    "word": "dragon",
+    "scrambled_word": ["g", "o", "d", "r", "a", "n"]
   },
   {
     "level": 7,
-    "word": "task",
-    "scrambled_word": ["k", "s", "a", "t"]
+    "word": "planet",
+    "scrambled_word": ["l", "a", "p", "e", "n", "t"]
   },
   {
     "level": 8,
-    "word": "hero",
-    "scrambled_word": ["o", "e", "h", "r"]
+    "word": "rocket",
+    "scrambled_word": ["k", "o", "r", "c", "e", "t"]
   },
   {
     "level": 9,
-    "word": "goal",
-    "scrambled_word": ["o", "l", "a", "g"]
+    "word": "castle",
+    "scrambled_word": ["s", "a", "c", "t", "l", "e"]
+  },
+  {
+    "level": 10,
+    "word": "forest",
+    "scrambled_word": ["e", "s", "f", "o", "r", "t"]
+  },
+  {
+    "level": 11,
+    "word": "mirror",
+    "scrambled_word": ["r", "i", "m", "o", "r", "r"]
+  },
+  {
+    "level": 12,
+    "word": "safari",
+    "scrambled_word": ["a", "f", "s", "a", "r", "i"]
+  },
+  {
+    "level": 13,
+    "word": "ticket",
+    "scrambled_word": ["k", "t", "i", "c", "e", "t"]
+  },
+  {
+    "level": 14,
+    "word": "whisky",
+    "scrambled_word": ["s", "k", "w", "h", "i", "y"]
+  },
+  {
+    "level": 15,
+    "word": "zombie",
+    "scrambled_word": ["m", "o", "z", "b", "i", "e"]
+  },
+  {
+    "level": 16,
+    "word": "voyage",
+    "scrambled_word": ["y", "a", "v", "o", "g", "e"]
+  },
+  {
+    "level": 17,
+    "word": "quasar",
+    "scrambled_word": ["a", "s", "q", "u", "a", "r"]
+  },
+  {
+    "level": 18,
+    "word": "jigsaw",
+    "scrambled_word": ["s", "a", "j", "g", "i", "w"]
+  },
+  {
+    "level": 19,
+    "word": "knight",
+    "scrambled_word": ["h", "k", "n", "i", "g", "t"]
+  },
+  {
+    "level": 20,
+    "word": "xylophone",
+    "scrambled_word": ["o", "x", "y", "l", "p", "h", "o", "n", "e"]
   }
 ]

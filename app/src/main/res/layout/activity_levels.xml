@@ -6,12 +6,37 @@
     android:background="@color/very_light_purple"
     tools:context=".MainActivity">
 
+    <!-- Star Icon -->
+    <ImageView
+        android:id="@+id/starIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Score TextView -->
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="30sp"
+        android:textColor="@color/dark_purple"
+        android:textStyle="bold"
+        android:fontFamily="@font/yay_holiday"
+        app:layout_constraintStart_toEndOf="@id/starIcon"
+        app:layout_constraintTop_toTopOf="@id/starIcon"
+        app:layout_constraintBottom_toBottomOf="@id/starIcon" />
+
     <!-- Title Text -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/yay_holiday"
         android:gravity="center"
         android:text="Select Level"
@@ -54,7 +79,6 @@
             android:layout_margin="10dp"
             android:radius="8dp"
             app:cornerRadius="10dp"
-
             android:text="2"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -66,7 +90,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="3"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -78,7 +101,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="4"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -90,7 +112,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="5"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -102,7 +123,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="6"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -114,7 +134,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="7"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -126,7 +145,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="8"
             android:textColor="#FFFFFF"
             android:gravity="center"
@@ -138,7 +156,6 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             app:cornerRadius="10dp"
-
             android:text="9"
             android:textColor="#FFFFFF"
             android:gravity="center"

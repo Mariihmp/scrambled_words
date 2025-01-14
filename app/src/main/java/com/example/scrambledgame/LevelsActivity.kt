@@ -4,19 +4,35 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class LevelsActivity : AppCompatActivity() {
 
     private lateinit var levels: List<Level>
-    private var unlockedLevels = 1 // Start with level 1 unlocked
+    private lateinit var progressManager: ProgressManager
+
+    // List of level button IDs
+    private val levelButtonIds = listOf(
+        R.id.card1, R.id.card2, R.id.card3, R.id.card4, R.id.card5,
+        R.id.card6, R.id.card7, R.id.card8, R.id.card9
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_levels)
+
+        // Initialize ProgressManager
+
+        window.statusBarColor = ContextCompat.getColor(this, R.color.very_light_purple)
+        progressManager = ProgressManager(this)
+        val totalScore = progressManager.getTotalScore()
+        val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
+        scoreTextView.text = "$totalScore"
 
         // Load levels from JSON
         levels = loadLevelsFromJson()
@@ -26,12 +42,16 @@ class LevelsActivity : AppCompatActivity() {
             return
         }
 
-        // Update unlocked levels based on game progress
-        updateUnlockedLevels()
-
         // Set up click listeners for level buttons
-        for (level in 1..levels.size) {
-            val cardId = resources.getIdentifier("card$level", "id", packageName)
+        setupLevelButtons()
+    }
+
+    private fun setupLevelButtons() {
+        // Get the highest level unlocked
+        val highestLevelUnlocked = progressManager.getHighestLevelUnlocked()
+
+        for ((index, cardId) in levelButtonIds.withIndex()) {
+            val level = index + 1 // Levels start from 1
             val card = findViewById<Button>(cardId)
 
             if (card == null) {
@@ -41,8 +61,8 @@ class LevelsActivity : AppCompatActivity() {
             }
 
             // Set button color and click listener
-            if (level <= unlockedLevels) {
-                card.setBackgroundColor(getColor(R.color.unlocked_level_color)) // Unlocked color
+            if (level <= highestLevelUnlocked) {
+                card.setBackgroundColor(getColor(R.color.purple_500_lighter)) // Unlocked color
                 card.setOnClickListener {
                     startGameActivity(level)
                 }
@@ -55,24 +75,31 @@ class LevelsActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUnlockedLevels() {
-        // Example logic: Unlock levels based on game progress
-        // For now, unlock levels 1 and 2 by default
-        unlockedLevels = 2
-
-        // Add more logic here to dynamically update `unlockedLevels` based on game progress
-    }
-
     private fun startGameActivity(level: Int) {
         try {
             val levelData = levels[level - 1]
             val intent = Intent(this, GameActivity::class.java).apply {
                 putExtra("LEVEL", Gson().toJson(levelData))
+                putExtra("CURRENT_LEVEL", level) // Pass the current level number
             }
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_GAME)
         } catch (e: Exception) {
             Toast.makeText(this, "Error loading level $level", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_GAME && resultCode == RESULT_OK) {
+            // Get the next level to unlock
+            val nextLevel = data?.getIntExtra("NEXT_LEVEL", 1) ?: 1
+
+            // Update the highest level unlocked
+            progressManager.saveHighestLevelUnlocked(nextLevel)
+
+            // Refresh the UI
+            setupLevelButtons()
         }
     }
 
@@ -86,6 +113,10 @@ class LevelsActivity : AppCompatActivity() {
             e.printStackTrace()
             emptyList()
         }
+    }
+
+    companion object {
+        private const val REQUEST_CODE_GAME = 1001
     }
 
     data class Level(

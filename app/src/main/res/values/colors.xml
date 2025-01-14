@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="purple_200">#702AC7</color>
+    <color name="purple_200">#630f8c</color>
     <color name="purple_500">#FF6200EE</color>
+    <color name="purple_500_lighter">#921eeb</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="very_light_purple">#E6E6FA</color>
     <color name="dark_purple">#4B0082</color> <!-- Add this line -->
