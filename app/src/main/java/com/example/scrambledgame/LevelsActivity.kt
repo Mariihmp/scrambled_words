@@ -19,7 +19,10 @@ class LevelsActivity : AppCompatActivity() {
     // List of level button IDs
     private val levelButtonIds = listOf(
         R.id.card1, R.id.card2, R.id.card3, R.id.card4, R.id.card5,
-        R.id.card6, R.id.card7, R.id.card8, R.id.card9
+        R.id.card6, R.id.card7, R.id.card8, R.id.card9, R.id.card10,R.id.card11,
+        R.id.card12,R.id.card13,R.id.card14,R.id.card15,R.id.card16,R.id.card17,
+        R.id.card18,
+        R.id.card19,R.id.card20
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +31,7 @@ class LevelsActivity : AppCompatActivity() {
 
         // Initialize ProgressManager
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.very_light_purple)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.status_levels)
         progressManager = ProgressManager(this)
         val totalScore = progressManager.getTotalScore()
         val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
@@ -89,13 +92,14 @@ class LevelsActivity : AppCompatActivity() {
         }
     }
 
+    @Deprecated("This method has been deprecated in favor of using the Activity Result API\n      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt\n      contracts for common intents available in\n      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for\n      testing, and allow receiving results in separate, testable classes independent from your\n      activity. Use\n      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}\n      with the appropriate {@link ActivityResultContract} and handling the result in the\n      {@link ActivityResultCallback#onActivityResult(Object) callback}.")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_GAME && resultCode == RESULT_OK) {
-            // Get the next level to unlock
             val nextLevel = data?.getIntExtra("NEXT_LEVEL", 1) ?: 1
+            val progressManager = ProgressManager(this)
 
-            // Update the highest level unlocked
+            // Update the highest level unlocked only if the next level is higher
             progressManager.saveHighestLevelUnlocked(nextLevel)
 
             // Refresh the UI

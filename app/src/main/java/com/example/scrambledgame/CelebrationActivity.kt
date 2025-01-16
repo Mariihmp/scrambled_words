@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 private lateinit var progressManager: ProgressManager
 
@@ -14,6 +15,8 @@ class CelebrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_celebration)
         progressManager = ProgressManager(this)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.statues_win)
+
 
         // Initialize the LottieAnimationView
         val lottieAnimationView: LottieAnimationView = findViewById(R.id.lottieAnimationView)

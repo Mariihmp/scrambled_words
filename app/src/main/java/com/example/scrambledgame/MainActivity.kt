@@ -1,5 +1,5 @@
 package com.example.scrambledgame
-
+import android.media.MediaPlayer;
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        window.statusBarColor = ContextCompat.getColor(this, R.color.status_start)
 
 
         val splashText: TextView = findViewById(R.id.idTVText)

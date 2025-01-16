@@ -6,7 +6,7 @@
     android:id="@+id/idRLContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/very_light_purple"
+    android:background="@drawable/bg_beach_main"
     tools:context=".MainActivity">
 
     <!-- ImageView for displaying a logo or splash image -->
@@ -14,20 +14,21 @@
         android:id="@+id/idTVText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="scramble words"
+        android:text="scramble the words"
         android:textSize="35sp"
         android:fontFamily="@font/yay_holiday"
         android:textColor="@color/dark_purple"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/idIVLogo"
-        android:layout_marginBottom="2dp" />
+       />
     <ImageView
         android:id="@+id/idIVLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="25dp"
-        android:src="@drawable/ic_splash_screen"
+        android:layout_margin="10dp"
+        android:padding="-20dp"
+        android:src="@drawable/ic_launcher_foreground"
         app:tint="@color/dark_purple" />
 
     <!-- ProgressBar to indicate loading or processing -->

@@ -1,102 +1,102 @@
 [
   {
     "level": 1,
-    "word": "puzzle",
-    "scrambled_word": ["z", "u", "p", "l", "e", "z"]
+    "word": "apple",
+    "scrambled_word": ["l", "p", "e", "a", "p"]
   },
   {
     "level": 2,
-    "word": "guitar",
-    "scrambled_word": ["t", "a", "r", "g", "u", "i"]
+    "word": "table",
+    "scrambled_word": ["e", "t", "b", "a", "l"]
   },
   {
     "level": 3,
-    "word": "basket",
-    "scrambled_word": ["s", "k", "a", "b", "e", "t"]
+    "word": "chair",
+    "scrambled_word": ["i", "c", "r", "h", "a"]
   },
   {
     "level": 4,
-    "word": "jungle",
-    "scrambled_word": ["g", "u", "n", "j", "e", "l"]
+    "word": "happy",
+    "scrambled_word": ["y", "p", "a", "h", "p"]
   },
   {
     "level": 5,
-    "word": "camera",
-    "scrambled_word": ["m", "a", "c", "e", "r", "a"]
+    "word": "sunny",
+    "scrambled_word": ["n", "s", "y", "u", "n"]
   },
   {
     "level": 6,
-    "word": "dragon",
-    "scrambled_word": ["g", "o", "d", "r", "a", "n"]
+    "word": "water",
+    "scrambled_word": ["e", "w", "t", "a", "r"]
   },
   {
     "level": 7,
-    "word": "planet",
-    "scrambled_word": ["l", "a", "p", "e", "n", "t"]
+    "word": "flower",
+    "scrambled_word": ["w", "f", "e", "l", "o", "r"]
   },
   {
     "level": 8,
-    "word": "rocket",
-    "scrambled_word": ["k", "o", "r", "c", "e", "t"]
+    "word": "banana",
+    "scrambled_word": ["a", "n", "b", "a", "n", "a"]
   },
   {
     "level": 9,
-    "word": "castle",
-    "scrambled_word": ["s", "a", "c", "t", "l", "e"]
+    "word": "orange",
+    "scrambled_word": ["g", "o", "a", "r", "n", "e"]
   },
   {
     "level": 10,
-    "word": "forest",
-    "scrambled_word": ["e", "s", "f", "o", "r", "t"]
+    "word": "rabbit",
+    "scrambled_word": ["b", "a", "t", "r", "b", "i"]
   },
   {
     "level": 11,
-    "word": "mirror",
-    "scrambled_word": ["r", "i", "m", "o", "r", "r"]
+    "word": "robot",
+    "scrambled_word": ["t", "o", "b", "o", "r"]
   },
   {
     "level": 12,
-    "word": "safari",
-    "scrambled_word": ["a", "f", "s", "a", "r", "i"]
+    "word": "moon",
+    "scrambled_word": ["n", "o", "m", "o"]
   },
   {
     "level": 13,
-    "word": "ticket",
-    "scrambled_word": ["k", "t", "i", "c", "e", "t"]
+    "word": "mars",
+    "scrambled_word": ["s", "r", "a", "m"]
   },
   {
     "level": 14,
-    "word": "whisky",
-    "scrambled_word": ["s", "k", "w", "h", "i", "y"]
+    "word": "rocket",
+    "scrambled_word": ["k", "t", "o", "r", "c", "e"]
   },
   {
     "level": 15,
-    "word": "zombie",
-    "scrambled_word": ["m", "o", "z", "b", "i", "e"]
+    "word": "guitar",
+    "scrambled_word": ["t", "a", "g", "u", "i", "r"]
   },
   {
     "level": 16,
-    "word": "voyage",
-    "scrambled_word": ["y", "a", "v", "o", "g", "e"]
+    "word": "jungle",
+    "scrambled_word": ["j", "e", "g", "u", "n", "l"]
   },
   {
     "level": 17,
-    "word": "quasar",
-    "scrambled_word": ["a", "s", "q", "u", "a", "r"]
+    "word": "camera",
+    "scrambled_word": ["m", "a", "e", "c", "r", "a"]
   },
   {
     "level": 18,
-    "word": "jigsaw",
-    "scrambled_word": ["s", "a", "j", "g", "i", "w"]
+    "word": "dragon",
+    "scrambled_word": ["g", "o", "a", "d", "r", "n"]
   },
   {
     "level": 19,
-    "word": "knight",
-    "scrambled_word": ["h", "k", "n", "i", "g", "t"]
+    "word": "planet",
+    "scrambled_word": ["l", "a", "t", "p", "e", "n"]
   },
   {
     "level": 20,
-    "word": "xylophone",
-    "scrambled_word": ["o", "x", "y", "l", "p", "h", "o", "n", "e"]
+    "word": "puzzle",
+    "scrambled_word": ["z", "e", "p", "u", "l", "z"]
   }
 ]

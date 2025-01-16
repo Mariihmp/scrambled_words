@@ -10,7 +10,7 @@ class StartActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.very_light_purple)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.status_start)
 
         // Initialize the Start Game button
         val btnStartGame: Button = findViewById(R.id.btnStartGame)

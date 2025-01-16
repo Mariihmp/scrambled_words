@@ -30,6 +30,7 @@ import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 
 import java.util.concurrent.TimeUnit
+import android.media.MediaPlayer
 
 class GameActivity : AppCompatActivity() {
 
@@ -46,14 +47,17 @@ class GameActivity : AppCompatActivity() {
     private var currentWord: String = ""
     private var scrambledLetters: List<Char> = listOf()
     private var guessedWord: MutableList<Char> = mutableListOf()
-    private var lives: Int = 3
+    private var lives: Int = 5
+    private var levelUpSound: MediaPlayer? = null
     private var timeLeft: Long = 60000 // 60 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        levelUpSound = MediaPlayer.create(this, R.raw.level_up)
 
-        window.statusBarColor = ContextCompat.getColor(this, R.color.very_light_purple)
+
+        window.statusBarColor = ContextCompat.getColor(this, R.color.statues_game)
 
 
 
@@ -209,7 +213,15 @@ class GameActivity : AppCompatActivity() {
             @SuppressLint("SetTextI18n")
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished
-                timerTextView.text = "${timeLeft / 1000}s"
+                val secondsLeft = millisUntilFinished / 1000
+
+                // Update the timer text
+                timerTextView.text = "${secondsLeft}s"
+
+                // Deduct a life after 1 minute (60 seconds)
+                if (secondsLeft == 60L) {
+                    loseLife()
+                }
             }
 
             override fun onFinish() {
@@ -223,23 +235,23 @@ class GameActivity : AppCompatActivity() {
         val userInput = placeholders.joinToString("") { it.text.toString() }
         if (userInput.equals(currentWord, true)) {
             Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
-           //show glow here
             showWin()
-            // Unlock the next level
+            onPlayerWins()
+
+            // Unlock the next level only if it's higher than the current highest level
             val currentLevel = intent.getIntExtra("CURRENT_LEVEL", 1)
             val nextLevel = currentLevel + 1
             val progressManager = ProgressManager(this)
             progressManager.addScoreForWin()
 
-            // Save progress
-
+            // Save progress only if the next level is higher than the current highest level
             progressManager.saveHighestLevelUnlocked(nextLevel)
 
             // Return to LevelsActivity with the next level to unlock
-
             val resultIntent = Intent()
             resultIntent.putExtra("NEXT_LEVEL", nextLevel) // Pass the next level to unlock
             setResult(RESULT_OK, resultIntent)
+
             val totalScore = progressManager.getTotalScore()
             val intent = Intent(this, CelebrationActivity::class.java).apply {
                 putExtra("TOTAL_SCORE", totalScore) // Pass the total score
@@ -248,24 +260,40 @@ class GameActivity : AppCompatActivity() {
             finish()
         } else {
             Toast.makeText(this, "Incorrect. Try again.", Toast.LENGTH_SHORT).show()
-            //you can add error effect of course in here
             loseLife()
         }
     }
+    private fun stopCountdownTimer() {
+        countdownTimer.cancel()
+    }
     private  fun showWin(){
+        stopCountdownTimer()
         val intent = Intent(this, CelebrationActivity::class.java)
         startActivity(intent)
         finish()
     }
 
+
     private fun loseLife() {
         lives--
         updateHearts()
-        if (lives <= 0) {
+
+        if (lives > 0) {
+            // Stop the current timer
+            countdownTimer.cancel()
+
+            // Reset the timer to 1 minute
+            timeLeft = 60000
+
+            // Restart the timer
+            startCountdownTimer()
+        } else {
+            // Game over logic
             Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG).show()
             finish()
         }
     }
+
 
 
 
@@ -276,4 +304,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     data class Level(val level: Int, val word: String, val scrambled_word: List<Char>)
+
+    private fun onPlayerWins() {
+        // Play the level-up sound when the player wins
+        levelUpSound?.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        levelUpSound?.release()
+        levelUpSound = null
+    }
 }
+

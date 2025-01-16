@@ -8,5 +8,13 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="very_light_purple">#E6E6FA</color>
     <color name="dark_purple">#4B0082</color> <!-- Add this line -->
-    <color name="unlocked_level_color">#4CAF50</color> <!-- Green for unlocked levels -->
+    <color name="unlocked_level_color">#4CAF50</color>
+    <!-- Green for unlocked levels -->
+    <color name="color_top_bar">#5ff4ff</color>
+    <color name="levels_color_top_bar">#5ce1e6</color>
+    <color name="statues_game">#faabdc</color>
+    <color name="statues_win">#ff94e1</color>
+    <color name="status_start">#cdffd8</color>
+    <color name="status_levels">#cdffd8</color>
+
 </resources>

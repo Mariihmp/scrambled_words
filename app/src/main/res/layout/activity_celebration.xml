@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/very_light_purple">
+    android:background="@drawable/bg_beach_win">
 
     <!-- Lottie Animation View (Full Screen) -->
     <com.airbnb.lottie.LottieAnimationView
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="310dp" />
+        android:layout_marginTop="250dp" />
 
     <LinearLayout
         android:id="@+id/scoreContainer"
@@ -78,7 +78,7 @@
         app:cornerRadius="10dp"
         app:elevation="8dp"
         android:translationZ="8dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="260dp"
         android:fontFamily="@font/yay_holiday"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

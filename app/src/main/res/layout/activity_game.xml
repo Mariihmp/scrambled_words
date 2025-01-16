@@ -5,7 +5,7 @@
     android:id="@+id/rootContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/very_light_purple"
+    android:background="@drawable/bg_beach_game"
     android:padding="16dp"
     tools:context=".GameActivity">
 
