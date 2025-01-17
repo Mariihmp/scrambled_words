@@ -98,5 +98,155 @@
     "level": 20,
     "word": "puzzle",
     "scrambled_word": ["z", "e", "p", "u", "l", "z"]
+  },
+  {
+    "level": 21,
+    "word": "butterfly",
+    "scrambled_word": ["t", "u", "b", "e", "r", "f", "l", "y", "t"]
+  },
+  {
+    "level": 22,
+    "word": "elephant",
+    "scrambled_word": ["e", "l", "p", "a", "h", "e", "n", "t"]
+  },
+  {
+    "level": 23,
+    "word": "giraffe",
+    "scrambled_word": ["g", "a", "f", "f", "e", "i", "r"]
+  },
+  {
+    "level": 24,
+    "word": "kangaroo",
+    "scrambled_word": ["k", "a", "n", "g", "a", "r", "o", "o"]
+  },
+  {
+    "level": 25,
+    "word": "octopus",
+    "scrambled_word": ["o", "c", "t", "u", "p", "s", "o"]
+  },
+  {
+    "level": 26,
+    "word": "umbrella",
+    "scrambled_word": ["u", "m", "b", "r", "e", "l", "l", "a"]
+  },
+  {
+    "level": 27,
+    "word": "volcano",
+    "scrambled_word": ["v", "o", "l", "c", "a", "n", "o"]
+  },
+  {
+    "level": 28,
+    "word": "whale",
+    "scrambled_word": ["w", "h", "a", "l", "e"]
+  },
+  {
+    "level": 29,
+    "word": "xylophone",
+    "scrambled_word": ["x", "y", "l", "o", "p", "h", "o", "n", "e"]
+  },
+  {
+    "level": 30,
+    "word": "zebra",
+    "scrambled_word": ["z", "e", "b", "r", "a"]
+  },
+  {
+    "level": 31,
+    "word": "astronaut",
+    "scrambled_word": ["a", "s", "t", "r", "o", "n", "a", "u", "t"]
+  },
+  {
+    "level": 32,
+    "word": "basketball",
+    "scrambled_word": ["b", "a", "s", "k", "e", "t", "b", "a", "l", "l"]
+  },
+  {
+    "level": 33,
+    "word": "caterpillar",
+    "scrambled_word": ["c", "a", "t", "e", "r", "p", "i", "l", "l", "a", "r"]
+  },
+  {
+    "level": 34,
+    "word": "dinosaur",
+    "scrambled_word": ["d", "i", "n", "o", "s", "a", "u", "r"]
+  },
+  {
+    "level": 35,
+    "word": "elephant",
+    "scrambled_word": ["e", "l", "p", "a", "h", "e", "n", "t"]
+  },
+  {
+    "level": 36,
+    "word": "fireworks",
+    "scrambled_word": ["f", "i", "r", "e", "w", "o", "r", "k", "s"]
+  },
+  {
+    "level": 37,
+    "word": "galaxy",
+    "scrambled_word": ["g", "a", "l", "a", "x", "y"]
+  },
+  {
+    "level": 38,
+    "word": "helicopter",
+    "scrambled_word": ["h", "e", "l", "i", "c", "o", "p", "t", "e", "r"]
+  },
+  {
+    "level": 39,
+    "word": "icecream",
+    "scrambled_word": ["i", "c", "e", "c", "r", "e", "a", "m"]
+  },
+  {
+    "level": 40,
+    "word": "jellyfish",
+    "scrambled_word": ["j", "e", "l", "l", "y", "f", "i", "s", "h"]
+  },
+  {
+    "level": 41,
+    "word": "kangaroo",
+    "scrambled_word": ["k", "a", "n", "g", "a", "r", "o", "o"]
+  },
+  {
+    "level": 42,
+    "word": "lighthouse",
+    "scrambled_word": ["l", "i", "g", "h", "t", "h", "o", "u", "s", "e"]
+  },
+  {
+    "level": 43,
+    "word": "mountain",
+    "scrambled_word": ["m", "o", "u", "n", "t", "a", "i", "n"]
+  },
+  {
+    "level": 44,
+    "word": "notebook",
+    "scrambled_word": ["n", "o", "t", "e", "b", "o", "o", "k"]
+  },
+  {
+    "level": 45,
+    "word": "octopus",
+    "scrambled_word": ["o", "c", "t", "u", "p", "s", "o"]
+  },
+  {
+    "level": 46,
+    "word": "penguin",
+    "scrambled_word": ["p", "e", "n", "g", "u", "i", "n"]
+  },
+  {
+    "level": 47,
+    "word": "quicksand",
+    "scrambled_word": ["q", "u", "i", "c", "k", "s", "a", "n", "d"]
+  },
+  {
+    "level": 48,
+    "word": "rainbow",
+    "scrambled_word": ["r", "a", "i", "n", "b", "o", "w"]
+  },
+  {
+    "level": 49,
+    "word": "snowflake",
+    "scrambled_word": ["s", "n", "o", "w", "f", "l", "a", "k", "e"]
+  },
+  {
+    "level": 50,
+    "word": "telescope",
+    "scrambled_word": ["t", "e", "l", "e", "s", "c", "o", "p", "e"]
   }
 ]

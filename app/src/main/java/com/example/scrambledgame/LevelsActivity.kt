@@ -22,7 +22,15 @@ class LevelsActivity : AppCompatActivity() {
         R.id.card6, R.id.card7, R.id.card8, R.id.card9, R.id.card10,R.id.card11,
         R.id.card12,R.id.card13,R.id.card14,R.id.card15,R.id.card16,R.id.card17,
         R.id.card18,
-        R.id.card19,R.id.card20
+        R.id.card19,R.id.card20,R.id.card21,R.id.card22,R.id.card23,R.
+        id.card24,R.id.card25,
+        R.id.card26,R.id.card27,R.id.card28,R.id.card29,
+        R.id.card30,R.id.card31,R.id.card32,R.id.card33,R.id.card34,
+        R.id.card35,
+        R.id.card36,R.id.card37,R.id.card38,R.id.card39,R.id.card40,
+        R.id.card41,R.id.card42,
+        R.id.card43,R.id.card44,R.id.card45,R.id.card46,R.id.card47,
+        R.id.card48,R.id.card49,R.id.card50
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

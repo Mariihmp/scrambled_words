@@ -19,3 +19,30 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# Keep Gson classes
+#-keep class com.google.gson.** { *; }
+#
+## Keep Lottie classes
+#-keep class com.airbnb.lottie.** { *; }
+#
+## Keep Android support libraries
+#-keep class androidx.** { *; }
+#-keep class android.support.** { *; }
+#
+## Keep all public classes and methods
+#-keep public class * {
+#    public *;
+#}
+## Keep javax.annotation.Nullable
+#-keep class javax.annotation.Nullable { *; }
+#
+## Keep javax.lang.model.element.Modifier
+#-keep class javax.lang.model.element.Modifier { *; }
+#
+## Keep Okio classes
+#-keep class okio.** { *; }
+#-dontwarn okio.**
+#
+## Keep Error Prone annotations
+#-keep class com.google.errorprone.annotations.** { *; }
+#-dontwarn com.google.errorprone.annotations.**

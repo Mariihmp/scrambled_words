@@ -3,17 +3,13 @@ package com.example.scrambledgame
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.airbnb.lottie.LottieAnimationView
-
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
-
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.InputType
@@ -23,17 +19,14 @@ import android.view.ActionMode
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.ContextCompat
 import com.google.gson.Gson
-
-import java.util.concurrent.TimeUnit
 import android.media.MediaPlayer
+import android.view.MotionEvent
 
 class GameActivity : AppCompatActivity() {
-
 
     private lateinit var timerTextView: TextView
     private lateinit var scrambledWordGrid: GridLayout
@@ -43,29 +36,35 @@ class GameActivity : AppCompatActivity() {
     private lateinit var countdownTimer: CountDownTimer
     private lateinit var progressManager: ProgressManager
 
-
     private var currentWord: String = ""
     private var scrambledLetters: List<Char> = listOf()
     private var guessedWord: MutableList<Char> = mutableListOf()
     private var lives: Int = 5
     private var levelUpSound: MediaPlayer? = null
-    private var timeLeft: Long = 60000 // 60 seconds
+    private var timeLeft: Long = 30000 // 60 seconds
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         levelUpSound = MediaPlayer.create(this, R.raw.level_up)
-
-
         window.statusBarColor = ContextCompat.getColor(this, R.color.statues_game)
-
-
 
         scrambledWordGrid = findViewById(R.id.scrambledWordGrid)
         timerTextView = findViewById(R.id.timerTextView)
         checkButton = findViewById(R.id.checkButton)
+        val hintButton: Button = findViewById(R.id.hintButton)
 
+        // Initialize ProgressManager
+        progressManager = ProgressManager(this)
 
+        // Set click listener for the Hint button
+        hintButton.setOnClickListener {
+            if (progressManager.getTotalScore() >= 100) {
+                useHint()
+            } else {
+                Toast.makeText(this, "Not enough points to use a hint!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         // Initialize hearts
         hearts = listOfNotNull(
@@ -94,6 +93,31 @@ class GameActivity : AppCompatActivity() {
             Log.e("GameActivity", "No level data found in intent.")
             Toast.makeText(this, "Error: No level data found.", Toast.LENGTH_SHORT).show()
             finish()
+        }
+    }
+
+    private fun useHint() {
+        // Find empty placeholders
+        val emptyIndices = placeholders
+            .mapIndexed { index, editText -> index to editText }
+            .filter { (_, editText) -> editText.text.isNullOrEmpty() }
+            .map { (index, _) -> index }
+
+        if (emptyIndices.isNotEmpty()) {
+            // Randomly select an empty placeholder
+            val randomIndex = emptyIndices.random()
+
+            // Fill the placeholder with the correct letter
+            val correctLetter = currentWord[randomIndex].toString()
+            placeholders[randomIndex].setText(correctLetter)
+
+            // Deduct 100 points
+            progressManager.deductPointsForHint()
+
+            // Show a message
+            Toast.makeText(this, "Hint used! 100 points deducted.", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "No empty placeholders left!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -132,7 +156,6 @@ class GameActivity : AppCompatActivity() {
         startCountdownTimer()
     }
 
-
     private fun setupPlaceholders() {
         val placeholderContainer = findViewById<LinearLayout>(R.id.placeholderContainer)
         if (placeholderContainer == null) {
@@ -147,17 +170,25 @@ class GameActivity : AppCompatActivity() {
 
         for (i in currentWord.indices) {
             val placeholder = EditText(this).apply {
-                textSize = 30f // Larger font size
+                textSize = 40f // Larger font size
+                setTextColor(Color.BLACK) // Black text color
+                setTypeface(null, Typeface.BOLD)
                 gravity = Gravity.CENTER // Center text inside the placeholder
                 inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT, // Width
                     LinearLayout.LayoutParams.WRAP_CONTENT  // Height
                 ).apply {
                     setMargins(8, 8, 8, 8) // Add margin between placeholders
                 }
+                setOnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus) {
+                        showKeyboard(this)
+                    }
+                }
 
-                // Disable long press and paste
+
                 setOnLongClickListener { true }
                 customSelectionActionModeCallback = object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean = false
@@ -166,7 +197,7 @@ class GameActivity : AppCompatActivity() {
                     override fun onDestroyActionMode(mode: ActionMode?) {}
                 }
 
-                // Add TextWatcher to restrict input to one character
+
                 addTextChangedListener(object : TextWatcher {
                     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -219,11 +250,10 @@ class GameActivity : AppCompatActivity() {
                 timerTextView.text = "${secondsLeft}s"
 
                 // Deduct a life after 1 minute (60 seconds)
-                if (secondsLeft == 60L) {
+                if (secondsLeft == 30L) {
                     loseLife()
                 }
             }
-
             override fun onFinish() {
                 Toast.makeText(this@GameActivity, "Time's up!", Toast.LENGTH_SHORT).show()
                 loseLife()
@@ -238,16 +268,13 @@ class GameActivity : AppCompatActivity() {
             showWin()
             onPlayerWins()
 
-            // Unlock the next level only if it's higher than the current highest level
+
             val currentLevel = intent.getIntExtra("CURRENT_LEVEL", 1)
             val nextLevel = currentLevel + 1
-            val progressManager = ProgressManager(this)
             progressManager.addScoreForWin()
-
-            // Save progress only if the next level is higher than the current highest level
             progressManager.saveHighestLevelUnlocked(nextLevel)
 
-            // Return to LevelsActivity with the next level to unlock
+
             val resultIntent = Intent()
             resultIntent.putExtra("NEXT_LEVEL", nextLevel) // Pass the next level to unlock
             setResult(RESULT_OK, resultIntent)
@@ -263,16 +290,17 @@ class GameActivity : AppCompatActivity() {
             loseLife()
         }
     }
+
     private fun stopCountdownTimer() {
         countdownTimer.cancel()
     }
-    private  fun showWin(){
+
+    private fun showWin() {
         stopCountdownTimer()
         val intent = Intent(this, CelebrationActivity::class.java)
         startActivity(intent)
         finish()
     }
-
 
     private fun loseLife() {
         lives--
@@ -282,20 +310,32 @@ class GameActivity : AppCompatActivity() {
             // Stop the current timer
             countdownTimer.cancel()
 
-            // Reset the timer to 1 minute
+
             timeLeft = 60000
 
-            // Restart the timer
             startCountdownTimer()
         } else {
-            // Game over logic
             Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG).show()
             finish()
         }
     }
-
-
-
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        // Hide the keyboard when the user touches outside the placeholders
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val view = currentFocus
+            if (view != null) {
+                val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+                view.clearFocus() // Clear focus from the current placeholder
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+    private fun showKeyboard(editText: EditText) {
+        editText.requestFocus()
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+    }
 
     private fun updateHearts() {
         hearts.forEachIndexed { index, imageView ->
@@ -306,7 +346,6 @@ class GameActivity : AppCompatActivity() {
     data class Level(val level: Int, val word: String, val scrambled_word: List<Char>)
 
     private fun onPlayerWins() {
-        // Play the level-up sound when the player wins
         levelUpSound?.start()
     }
 
@@ -317,4 +356,3 @@ class GameActivity : AppCompatActivity() {
         levelUpSound = null
     }
 }
-

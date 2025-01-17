@@ -38,4 +38,13 @@ class ProgressManager(context: Context) {
         val currentScore = getTotalScore()
         saveTotalScore(currentScore + 100)
     }
+    fun deductPointsForHint() {
+        val currentScore = getTotalScore()
+        if (currentScore >= 100) { // Ensure the score doesn't go negative
+            saveTotalScore(currentScore - 100)
+        } else {
+            // Handle the case where the score is less than 100 (optional)
+            saveTotalScore(0)
+        }
+    }
 }

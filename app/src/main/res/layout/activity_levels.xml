@@ -49,252 +49,638 @@
     <!-- ScrollView to make the GridLayout scrollable -->
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="380dp"
+        android:layout_marginStart="5dp"
+        android:layout_height="360dp"
         android:layout_marginTop="-100dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintVertical_bias="0.293">
 
         <!-- GridLayout for Buttons -->
         <GridLayout
             android:id="@+id/gridLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:columnCount="3"
+            android:orientation="horizontal"
             android:rowCount="7"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Buttons 1 to 20 -->
-        <Button
-            android:id="@+id/card1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <!-- Buttons 1 to 20 -->
+            <Button
+                android:id="@+id/card1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="4"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="5"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card6"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="6"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="6"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card7"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="7"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card8"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="8"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="8"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card9"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="9"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card9"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="9"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card10"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card10"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card11"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="11"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card11"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="11"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card12"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="12"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card12"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="12"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card13"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="13"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card13"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="13"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card14"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="14"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card14"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="14"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card15"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="15"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card15"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="15"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card16"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="16"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card16"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="16"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card17"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="17"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card17"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="17"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card18"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="18"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card18"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="18"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card19"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="19"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card19"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="19"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-        <Button
-            android:id="@+id/card20"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="20"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            <Button
+                android:id="@+id/card20"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="20"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-    </GridLayout>
-</ScrollView>
+            <!-- Buttons 21 to 25 -->
+            <Button
+                android:id="@+id/card21"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="21"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/card22"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="22"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card23"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="23"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card24"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="24"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card25"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="25"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+
+            <Button
+                android:id="@+id/card26"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="26"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card27"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="27"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card28"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="28"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card29"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="29"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card30"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="30"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card31"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="31"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card32"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="32"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card33"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="33"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card34"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="34"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card35"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="35"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+
+            <Button
+                android:id="@+id/card36"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="36"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card37"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="37"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card38"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="38"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card39"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="39"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card40"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="40"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+
+            <Button
+                android:id="@+id/card41"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="41"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card42"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="42"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card43"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="43"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card44"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="44"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card45"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="45"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card46"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="46"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card47"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="47"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card48"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="48"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card49"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="49"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/card50"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/yay_holiday"
+                android:gravity="center"
+                android:text="50"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:cornerRadius="10dp" />
+
+        </GridLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
